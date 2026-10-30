@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="home_app_horizontal_margin">4dp</dimen>
+    <dimen name="home_app_corner_radius">8dp</dimen>
+    <dimen name="home_app_name_text_size">22sp</dimen>
+</resources>

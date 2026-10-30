@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipChildren="false"
+    android:clipToPadding="false">
+
+    <!-- 卡片占 85%，倒影视窗占 15%；两项比例一起调整倒影显示长度。 -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide_tile_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.85" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/home_app_tile"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/home_app_horizontal_margin"
+        android:layout_marginEnd="@dimen/home_app_horizontal_margin"
+        android:background="@drawable/bg_app_tile"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:focusable="true"
+        android:foreground="@drawable/bg_focus_outline"
+        app:layout_constraintBottom_toTopOf="@id/guide_tile_bottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/app_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:focusable="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <!-- @REMOVE-LATER: 调整宽高比例和 bias 可改变 Logo 图片尺寸与垂直位置。 -->
+            <ImageView
+                android:id="@+id/iv_app_icon"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:contentDescription="@null"
+                android:scaleType="fitCenter"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_percent="0.54"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.48"
+                app:layout_constraintWidth_percent="0.58" />
+<!--                app:layout_constraintBottom_toTopOf="@id/app_name_slot"-->
+            <!-- @REMOVE-LATER: 槽位比例控制名称图片和文本的显示范围；字号见 dimens.xml。 -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/app_name_slot"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_app_icon"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_percent="0.50"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintWidth_percent="0.50">
+
+                <ImageView
+                    android:id="@+id/iv_app_name"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:contentDescription="@null"
+                    android:scaleType="fitCenter"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_app_name"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/home_app_name_text_size"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- 视窗高度决定可见倒影长度；倒影会跟随卡片内容尺寸自动重绘。 -->
+    <com.demo.tvlauncher.shared.widget.ReflectionImageView
+        android:id="@+id/iv_app_reflection"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/home_app_tile"
+        app:layout_constraintVertical_bias="0"
+        app:layout_constraintHeight_percent="0.15" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

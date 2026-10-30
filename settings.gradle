@@ -1,0 +1,26 @@
+pluginManagement {
+    // Gradle 插件仓库：Android Gradle Plugin 等构建插件从这里找。
+    repositories {
+        google {
+            content {
+                includeGroupByRegex("com\\.android.*")
+                includeGroupByRegex("com\\.google.*")
+                includeGroupByRegex("androidx.*")
+            }
+        }
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+dependencyResolutionManagement {
+    // 禁止各 module 自己声明 repositories，统一走 google()/mavenCentral()。
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+rootProject.name = "TvLauncher"
+// :app 是可安装的 TV 桌面应用
+include ':app'

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TvLauncher</string>
+    <string name="home_loading">加载中...</string>
+    <string name="status_time_format">h:mm a</string>
+    <string name="status_date_format">EEEE,MMMM d</string>
+    <string name="menu_keystone">Keystone</string>
+    <string name="menu_miracast">Miracast</string>
+    <string name="menu_signal_source">Signal Source</string>
+    <string name="menu_my_apps">My Apps</string>
+    <string name="menu_settings">Settings</string>
+    <string name="all_apps_title">All Apps</string>
+    <string name="no_apps_found">No apps found</string>
+</resources>

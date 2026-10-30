@@ -1,0 +1,10 @@
+// Top-level build file.
+buildscript {
+    // 把 config.gradle 里的 ext 变量加载到根项目，子模块通过 rootProject.ext.android.xxx 读取。
+    apply from: "config.gradle"
+}
+plugins {
+    // 插件版本由 gradle/libs.versions.toml 统一管理，此处只声明不应用。
+    alias(libs.plugins.android.application) apply false
+    alias(libs.plugins.android.library) apply false
+}
